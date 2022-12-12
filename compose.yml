@@ -1,0 +1,11 @@
+services:
+  torch:
+    runtime: nvidia
+    build: ./torch
+    image: nvidia_torch_1_13
+    ipc: host
+    volumes:
+      - ./../3d-detection-pipeline:/home/user/workspace
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+    entrypoint: /bin/bash
